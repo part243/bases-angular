@@ -1,0 +1,10 @@
+<h1>BDZ main page - modulo individual</h1>
+<hr>
+<div class="row">
+  <div class="col">
+    <app-dbz-listado-component [characterList]="characters" (onDeleteCharacter)="deleteCharacterById($event)"></app-dbz-listado-component>
+  </div>
+  <div class="col">
+    <app-dbz-form-component (onNewCharacter)="addCharacter($event)"></app-dbz-form-component>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<h3>Listado de Héroes</h3>
+
+<button
+  class="btn btn-danger"
+  (click)="
+    removeDisableFromButton(heroNames[heroNames.length - 1]);
+  "
+>
+  Borrar último héroe
+</button>
+<!-- heroe borrado con nombre -->
+<h3 *ngIf="heroeBorradoNombre != '' && heroNames.length>0">
+  <hr />
+  <p class="text-danger">Héroe borrado: {{ heroeBorradoNombre }}</p>
+</h3>
+<h3 *ngIf="heroNames.length <= 0">
+  <hr />
+  <p class="text-danger">No hay héroes para mostrar</p>
+</h3>
+<h3 *ngIf="heroNames.length > 0">
+  <hr />
+  <p class="text-success">Héroes disponibles</p>
+</h3>
+<ul class="mt-2 list-group">
+  <li class="list-group-item" *ngFor="let hero of heroNames; index as x">
+    <strong>
+      {{ hero }}
+    </strong>
+  </li>
+</ul>
+
+<div *ngIf="heroNames.length>0; else miTemplate">
+<h3>Si no hay nombres muestro esto</h3>
+</div>
+
+<ng-template #miTemplate>
+  <h3>ENO HAY DATOS</h3>
+  <p>No hay nombres en la lista</p>
+</ng-template>
